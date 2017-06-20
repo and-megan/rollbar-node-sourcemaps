@@ -1,0 +1,1 @@
+var iglify=function(str){return str+="gly"};var multiplyByThree=function(a){return a*3};iglify("dog");multiplyByThree(5);var rollbar=require("./server.js");console.log(rollbar);var throwError=function(rollbar){try{fakeMethod()}catch(err){rollbar.error(err)}};module.exports=throwError;

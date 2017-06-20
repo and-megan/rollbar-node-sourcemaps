@@ -1,0 +1,17 @@
+{
+  "name": "example-app-using-node-source-map",
+  "version": "1.0.0",
+  "description": "A simple NodeJS app that uses Node source maps and RollbarJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "and-megan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "rollbar": "^2.0.4",
+    "source-map-support": "^0.4.15",
+    "uglify-js": "^3.0.18"
+  }
+}
