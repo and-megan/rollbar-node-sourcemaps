@@ -1,6 +1,5 @@
 var express = require('express');
 var Rollbar = require('rollbar');
-var throwError = require('./errors.js')
 var app = express();
 
 var rollbar = new Rollbar({
@@ -8,9 +7,6 @@ var rollbar = new Rollbar({
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
   environment: 'nodejs-env',
-});
-
-var _rollbarConfig = {
   payload: {
     client: {
       javascript: {
@@ -20,18 +16,22 @@ var _rollbarConfig = {
       }
     }
   }
-};
-
-rollbar.configure(_rollbarConfig);
-
+});
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/display.html');
-  throwError(rollbar);
 });
 
 app.get('/throw_error', function(req, res) {
   throw new Error('throwing an error!');
+});
+
+app.get('/app.js', function(req, res) {
+  res.sendFile(__dirname + '/app.js');
+});
+
+app.get('/app.js.map', function(req, res) {
+  res.sendFile(__dirname + '/app.js.map');
 });
 
 app.use(rollbar.errorHandler());

@@ -1,10 +1,9 @@
-var iglify = function(str) {
-  return str += 'gly';
-};
+module.exports = {
+  iglify: function(str) {
+    return str += 'igly';
+  };
 
-var multiplyByThree = function (a) {
-  return a * 3;
-};
-
-iglify('dog');
-multiplyByThree(5);
+  multiplyByThree: function(a) {
+    return a * 3;
+  };
+}
