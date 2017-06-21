@@ -1,9 +1,9 @@
 module.exports = {
   iglify: function(str) {
-    return str += 'igly';
-  };
+    return (str += 'igly');
+  },
 
   multiplyByThree: function(a) {
-    return a * 3;
-  };
+    return (a * 3);
+  }
 }

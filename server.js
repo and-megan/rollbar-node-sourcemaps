@@ -26,16 +26,10 @@ app.get('/throw_error', function(req, res) {
   throw new Error('throwing an error!');
 });
 
-app.get('/app.js', function(req, res) {
-  res.sendFile(__dirname + '/app.js');
-});
-
-app.get('/app.js.map', function(req, res) {
-  res.sendFile(__dirname + '/app.js.map');
+app.get('/main.min.js', function(req, res) {
+  res.sendFile(__dirname + '/main.min.js');
 });
 
 app.use(rollbar.errorHandler());
 
 app.listen(8080);
-
-module.exports = rollbar;
