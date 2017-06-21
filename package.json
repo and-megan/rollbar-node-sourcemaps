@@ -2,7 +2,7 @@
   "name": "example-app-using-node-source-map",
   "version": "1.0.0",
   "description": "A simple NodeJS app that uses Node source maps and RollbarJS",
-  "main": "app.js",
+  "main": "server.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
