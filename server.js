@@ -1,1 +1,37 @@
-var express=require("express"),Rollbar=require("rollbar"),app=express(),rollbar=new Rollbar({accessToken:"63db8f8b9b4d40f49d7d6abf700ec498",handleUncaughtExceptions:!0,handleUnhandledRejections:!0,environment:"nodejs-env",payload:{client:{javascript:{source_map_enabled:!0,code_version:"some version",guess_uncaught_frames:!0}}}});app.get("/",function(e,r){r.sendFile(__dirname+"/display.html")}),app.get("/throw_error",function(e,r){throw new Error("testing source maps error!")}),app.get("/main.min.js",function(e,r){r.sendFile(__dirname+"/main.min.js")}),app.use(rollbar.errorHandler()),app.listen(8080);
+var express = require('express');
+var Rollbar = require('rollbar');
+var app = express();
+
+
+var rollbar = new Rollbar({
+  accessToken: '63db8f8b9b4d40f49d7d6abf700ec498',
+  handleUncaughtExceptions: true,
+  handleUnhandledRejections: true,
+  environment: 'nodejs-env',
+  payload: {
+    client: {
+      javascript: {
+        source_map_enabled: true,
+        code_version: "some version",
+        guess_uncaught_frames: true
+      }
+    }
+  }
+});
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/display.html');
+});
+
+app.get('/throw_error', function(req, res) {
+  var thisIsASuperLongVar = 10;
+  throw new Error('testing source maps error!');
+});
+
+app.get('/main.min.js', function(req, res) {
+  res.sendFile(__dirname + '/main.min.js');
+});
+
+app.use(rollbar.errorHandler());
+
+app.listen(process.env.PORT || 8080);
