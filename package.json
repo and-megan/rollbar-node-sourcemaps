@@ -10,8 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",
-    "rollbar": "^2.0.4",
+    "rollbar": "git+https://github.com/and-megan/rollbar.js",
     "source-map-support": "^0.4.15",
-    "uglify-js": "^3.0.18"
+    "uglify-js": "^3.0.19",
+    "uglifyjs": "^2.4.11"
   }
 }
